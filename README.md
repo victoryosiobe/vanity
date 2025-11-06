@@ -17,7 +17,6 @@ Install by running:
 ```shell
 git clone https://github.com/victoryosiobe/vanity
 cd vanity
-yarn install
 ```
 
 As more chains are added, you will be able to clone the repo for their specific chains.
@@ -26,6 +25,7 @@ As more chains are added, you will be able to clone the repo for their specific 
 
 ```shell
 cd sol # Move into specific blockchain folder
+yarn install # this gets dependencies of particular chain
 node .
 ```
 
