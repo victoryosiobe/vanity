@@ -2,7 +2,7 @@
 
 const { workerData, parentPort } = require("worker_threads");
 const { Keypair } = require("@solana/web3.js");
-const bs58 = require("bs58").default;
+const bs58 = require("bs58");
 
 const { prefix, suffix, id } = workerData;
 const isPrefixAndSuffix = !!(prefix && suffix);
