@@ -23,7 +23,7 @@ As more chains are added, you will be able to clone the repo for their specific 
 
 ## Usage
 
-For solana:
+For Solana:
 
 ```shell
 cd sol # Move into specific blockchain folder

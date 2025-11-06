@@ -2,7 +2,7 @@
 
 **This folder will generate wallets for the SOL chain.**
 
-> [!INFO]
+> [!NOTE]
 >
 > Solana wallets addresses, are case sensitive. So, vanity will become case sensitve on your inputs, here.
 >

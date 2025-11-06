@@ -2,7 +2,7 @@
 
 **This folder will generate wallets for all EVM-compatible chains. This includes ETH, BNB, POLY, SEI and more.**
 
-> [!INFO]
+> [!NOTE]
 >
 > Evm wallets addresses, are in lowercase. So, vanity will become case insensitve on your inputs, here.
 >
