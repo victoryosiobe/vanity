@@ -8,7 +8,7 @@ Vanity is a CLI tool that helps you generate wallet addresses with custom text a
 
 **Example of a generated address on Solana: `FEEA1JcrDkKGs1fxoj3bigVJN6oG7UjDjXkQQBQkctUJ`**
 
-> **Currently:** supports only Solana. Other chains coming later.
+> **Currently:** supports Solana, and EVM-chains. Other chains coming later.
 
 ## Installation
 
@@ -23,9 +23,19 @@ As more chains are added, you will be able to clone the repo for their specific 
 
 ## Usage
 
+For solana:
+
 ```shell
 cd sol # Move into specific blockchain folder
 yarn install # this gets dependencies of particular chain
+node .
+```
+
+For EVM-chains:
+
+```shell
+cd evm
+yarn install
 node .
 ```
 
@@ -40,8 +50,6 @@ If you need both, fill in both fields.
 > Generating addresses with a longer prefix or suffix will take a lot of time to find one. Both together is usually very slow.
 >
 > Non-alphanumeric characters are not accepted as input in the fields.
->
-> Fields you fill are case sensitive.
 >
 > Vanity is optimized to use as many CPU cores as possible to find your vanity address.
 >
@@ -59,7 +67,7 @@ If you need both, fill in both fields.
 
 ## You bored?
 
-I did grind for a wallet that ends with `pump`. Stuff blew my mind.
+I did grind for a wallet that ends with `pump` on sol chain. Stuff blew my mind.
 
 Should do better on good hardware. This was run on a MediaTek Helio P35 (MT6765) SoC.
 

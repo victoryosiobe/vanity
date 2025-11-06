@@ -2,14 +2,13 @@ const { availableParallelism } = require("os");
 const { Worker } = require("worker_threads");
 const { performance } = require("node:perf_hooks");
 const numWorkers = availableParallelism();
+const prompt = require("../io");
 
-function V(prefix, suffix) {
-  if (prefix === "" && suffix === "") {
-    console.log(
-      `[VANITY] Both Fields Cannot Be Empty. Exiting Node process...`,
-    );
-    process.exit(0);
-  }
+(async () => {
+  let { prefix, suffix } = await prompt();
+  validateOrExit(prefix, suffix); // will exit if invalid
+  prefix = prefix.toLowerCase(); //evm chains only lowercase pub key.
+  suffix = suffix.toLowerCase();
   const start = performance.now();
   const numThreads = numWorkers - 1 || 1; //if only 1 as numberofWorkers maximum, use it. Else, use maximum - 1 core.
   let finished = false;
@@ -46,6 +45,15 @@ function V(prefix, suffix) {
       console.error(`❌ Worker ${i + 1} failed:`, err);
     });
   }
-}
+})();
 
-module.exports = V;
+function validateOrExit(prefix, suffix) {
+  const hexRegex = /^[0-9a-f]*$/;
+
+  if (!hexRegex.test(prefix) || !hexRegex.test(suffix)) {
+    console.error(
+      "[VANITY] ❌ Invalid prefix or suffix: must only contain hex characters 0-9 and a-f",
+    );
+    process.exit(1);
+  }
+}
