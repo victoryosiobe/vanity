@@ -1,0 +1,19 @@
+{
+  "name": "vanity",
+  "version": "0.0.0",
+  "main": "init.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victoryosiobe/vanity.git"
+  },
+  "keywords": [
+    "Custom wallet address generator",
+    "Sol wallet generator"
+  ],
+  "author": "Victory Osiobe",
+  "email": "myvicosy@gmail.com",
+  "bugs": {
+    "url": "https://github.com/victoryosiobe/kingchop/issues"
+  }
+}
