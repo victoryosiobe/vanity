@@ -6,7 +6,7 @@
 >
 > Evm wallets addresses, are in lowercase. So, vanity will become case insensitve on your inputs, here.
 >
-> Generation is currently slowed due to the PBKDF2 algorithm. I'll implement solutions to skip mnemonic generation.
+> Vanity is limited to generating private keys here, skipping mnemonics entirely for maximum speed.
 
 > [!IMPORTANT]
 >

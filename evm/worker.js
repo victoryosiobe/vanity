@@ -1,8 +1,7 @@
 "use strict";
 
 const { workerData, parentPort } = require("worker_threads");
-const ethers = require("ethers");
-
+const { Wallet, randomBytes, hexlify } = require("ethers");
 const { prefix, suffix, id } = workerData;
 const isPrefixAndSuffix = !!(prefix && suffix);
 const isPrefix = !!(prefix && !suffix);
@@ -26,19 +25,20 @@ console.log(
 );
 
 while (true) {
-  // Generate random keypair directly (headless, no mnemonic)
-  const wallet = ethers.Wallet.createRandom();
+  // Generate random keypair (privatekey) directly (headless, no mnemonic)
+  const randomByte = randomBytes(32);
+  const privateKey = hexlify(randomByte);
+
+  // Create a wallet from the private key
+  const wallet = new Wallet(privateKey);
   const pub = wallet.address;
 
   attempts++;
-
   if (check(pub)) {
-    const privateKey = wallet.privateKey;
-    const phrase = wallet.mnemonic.phrase;
     parentPort.postMessage({
       found: true,
       id,
-      secret: `${phrase} || ${privateKey}`,
+      secret: privateKey,
       pub,
       attempts,
     });
